@@ -1,0 +1,26 @@
+{
+  "name": "smart-emergency-system-allocation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "redis:check": "node scripts/redis-check.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mysql2": "^3.14.1",
+    "next": "^14.2.30",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "redis": "^4.7.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^18.3.23",
+    "typescript": "^5.8.3"
+  }
+}
