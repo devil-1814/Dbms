@@ -1,0 +1,1 @@
+Run `schema.sql` first in MySQL Workbench, then run `advanced_features.sql`. The schema script seeds demo resources. Register a user through the web app before creating incidents, because `reported_by` is a foreign key.
