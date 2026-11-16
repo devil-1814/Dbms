@@ -1,0 +1,69 @@
+1. USERS
+USERS(
+    user_id PK,
+    name,
+    email UNIQUE,
+    password,
+    role,
+    created_at
+)
+
+
+2. RESOURCES
+RESOURCES(
+    resource_id PK,
+    resource_name,
+    resource_type,
+    capacity,
+    available_units,
+    status,
+    location
+)
+
+
+3. INCIDENTS
+INCIDENTS(
+    incident_id PK,
+    title,
+    description,
+    emergency_type,
+    severity,
+    status,
+    location,
+    people_affected,
+    reported_by FK REFERENCES USERS(user_id),
+    assigned_resource_id FK REFERENCES RESOURCES(resource_id),
+    created_at
+)
+
+
+4. ALLOCATION_LOG
+ALLOCATION_LOG(
+    allocation_id PK,
+    incident_id FK REFERENCES INCIDENTS(incident_id),
+    resource_id FK REFERENCES RESOURCES(resource_id),
+    allocated_units,
+    allocated_at,
+    released_at
+)
+
+
+5. INCIDENT_AUDIT
+INCIDENT_AUDIT(
+    audit_id PK,
+    incident_id FK REFERENCES INCIDENTS(incident_id),
+    old_status,
+    new_status,
+    old_severity,
+    new_severity,
+    changed_at
+)
+
+
+2. Relationships
+Relationship	Type
+USERS → INCIDENTS	One-to-Many
+RESOURCES → INCIDENTS	One-to-Many
+INCIDENTS → ALLOCATION_LOG	One-to-Many
+RESOURCES → ALLOCATION_LOG	One-to-Many
+INCIDENTS → INCIDENT_AUDIT	One-to-Many
